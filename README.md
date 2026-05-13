@@ -8,7 +8,8 @@ ESC goes back
 
 # Start Up
 1. Download and install LC-3 [Here](https://github.com/chiragsakhuja/lc3tools/releases)
-2. Launch the simulator and open (the file)
-3. Press Convert/Assemble
-4. Move over to the run tab and press run
-5. To reset the simulator after it has ended press reload object files
+2. Launch the simulator
+3. Open Maze-Game.asm
+5. Press Convert/Assemble
+6. Move over to the simulator tab and press run
+7. To reset the simulator after it has ended press reload object files
