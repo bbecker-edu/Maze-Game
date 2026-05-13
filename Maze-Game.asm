@@ -45,9 +45,7 @@ MAIN_MENU
 
     JSR M_DISPLAY       ;Menu
     ADD R0 R0 #0        ;Update NZP
-    BRz GL_ND 
-    
-    JSR CLR_SCRN        ;Clear Menu
+    BRz GL_ND
     
     ;GAMEPLAY
         ;Show hint
@@ -129,6 +127,7 @@ G_GAME:
     ADD R2  R2  R1  ;R2 = G_MAZE + SCALE
     
 G_GAME_MLOOP
+    JSR CLR_SCRN
     ADD R0  R0  #0  ;Update Returns
     BRp G_GAME_DONE
     
@@ -428,6 +427,7 @@ M_HTP       .STRINGZ    "\n[o] is you\n[ ] is navigable\n[#] is a wall\n[X] is t
 ;****************************************************************************/
 CLR_SCRN_LNS    .FILL #15   ;Number of lines to clear
 CLR_SCRN:
+    ST  R0  CLR_SCRN_R0
     ST  R1  CLR_SCRN_R1
     
     AND R0 R0 #0
@@ -441,9 +441,11 @@ CLR_SCRN_LOOP
     BR  CLR_SCRN_LOOP
 
 CLR_SCRN_DONE
+    LD  R0  CLR_SCRN_R0
     LD  R1  CLR_SCRN_R1
 
     RET
 CLR_SCRN_R1 .BLKW   1
+CLR_SCRN_R0 .BLKW   1
 
 .END
